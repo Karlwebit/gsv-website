@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitglied werden - Goyatzer SV</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Globale Styles & Variablen (aus vorherigen Seiten) --- */
+        :root {
+            --primary-blue: #0077cc;
+            --primary-yellow: #ffdd00;
+            --dark-blue: #005fa3;
+            --light-grey: #f0f0f0;
+            --very-light-grey: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --section-padding: 60px 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--dark-blue); }
+        ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.7em;
+            line-height: 1.3;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Buttons (aus vorherigen Seiten) --- */
+        .button { display: inline-block; padding: 12px 30px; border-radius: var(--border-radius); font-weight: 600; font-family: var(--heading-font); text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; font-size: 1em; }
+        .button-primary { background-color: var(--primary-blue); color: var(--text-light); }
+        .button-primary:hover { background-color: var(--dark-blue); transform: translateY(-2px); color: var(--text-light); }
+        .button-secondary { background-color: var(--primary-yellow); color: var(--text-dark); font-weight: 700; }
+        .button-secondary:hover { background-color: #e6c600; transform: translateY(-2px); color: var(--text-dark); }
+         .button-large { padding: 15px 40px; font-size: 1.1em; } /* Größerer Button für Haupt-CTA */
+
+        /* --- Header (aus vorherigen Seiten) --- */
+        .main-header { background-color: var(--primary-blue); color: var(--text-light); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--text-light); font-weight: 500; padding: 8px 5px; position: relative; font-size: 0.95em; transition: color 0.3s ease; }
+        .main-nav a:hover, .main-nav li.active a { color: var(--primary-yellow); }
+        /* Spezielles Highlighting für den "Mitglied werden" Button */
+        .main-nav .nav-button.active a,
+        .main-nav .nav-button a:hover {
+             background-color: #e6c600; /* Dunkleres Gelb für Hover/Aktiv */
+             color: var(--text-dark);
+        }
+         .main-nav .nav-button a { background-color: var(--primary-yellow); color: var(--text-dark); padding: 8px 15px; border-radius: 5px; font-weight: 600; transition: background-color 0.3s ease;}
+        .header-socials { display: flex; gap: 15px; margin-left: 20px; }
+        .header-socials a { color: var(--text-light); font-size: 1.1em; }
+        .header-socials a:hover { color: var(--primary-yellow); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 24px; cursor: pointer; }
+
+         /* --- Page Hero Section (Angepasst für Mitgliedschaft) --- */
+        .page-hero {
+            padding: 70px 0;
+             /* Einladendes Hintergrundbild */
+             background: linear-gradient(rgba(0, 119, 204, 0.75), rgba(0, 95, 163, 0.8)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+             background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .page-hero h1 {
+             font-size: 3.2em;
+             font-weight: 700;
+             color: var(--text-light);
+             margin-bottom: 15px;
+             line-height: 1.2;
+         }
+         .page-hero h1 span { /* Zweite Zeile der Überschrift */
+            display: block;
+            font-size: 0.8em; /* Etwas kleiner */
+            font-weight: 500;
+            color: var(--primary-yellow); /* Gelbe Hervorhebung */
+            margin-top: 5px;
+         }
+        .page-hero p { font-size: 1.2em; max-width: 750px; margin: 0 auto; opacity: 0.95; }
+
+        /* --- Section: Deine Vorteile --- */
+        .benefits-section { padding: var(--section-padding); background-color: var(--very-light-grey); }
+        .section-title { text-align: center; font-size: 2.4em; margin-bottom: 50px; color: var(--primary-blue); }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
+            gap: 30px;
+        }
+        .benefit-card {
+            background-color: var(--text-light);
+            padding: 30px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .benefit-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+         }
+        .benefit-card i {
+            font-size: 2.8em;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            display: block; /* Damit Margin Bottom wirkt */
+        }
+        .benefit-card h3 { font-size: 1.4em; margin-bottom: 10px; }
+        .benefit-card p { color: #555; font-size: 0.95em; }
+
+        /* --- Section: Dein Weg zur Mitgliedschaft --- */
+        .process-section { padding: var(--section-padding); }
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: 1 Spalte */
+            gap: 40px;
+            max-width: 900px; /* Begrenzte Breite für bessere Lesbarkeit */
+            margin: 0 auto;
+        }
+        .step-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background-color: var(--very-light-grey);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            font-family: var(--heading-font);
+            box-shadow: 0 2px 5px rgba(0, 119, 204, 0.4);
+        }
+        .step-content h3 { font-size: 1.3em; margin-bottom: 8px; color: var(--dark-blue); }
+        .step-content p { margin: 0; color: #555; }
+
+        /* --- Section: Antrag Download & Einreichen --- */
+        .download-section {
+            padding: var(--section-padding);
+            background-color: var(--dark-blue); /* Dunkler Hintergrund für Kontrast */
+            color: var(--text-light);
+            text-align: center;
+        }
+        .download-section h2 { color: var(--primary-yellow); margin-bottom: 20px; }
+        .download-section p { max-width: 650px; margin: 0 auto 30px auto; opacity: 0.9; }
+        .download-button-container { margin-bottom: 40px; }
+        .download-button-container .button-secondary { border: 2px solid var(--primary-yellow); } /* Gelber Rand */
+         .download-button-container .button-secondary:hover { background-color: var(--primary-yellow); color: var(--text-dark); } /* Vollgelb bei Hover */
+        .submission-info h3 { color: var(--text-light); margin-bottom: 15px; font-size: 1.4em;}
+        .submission-info ul { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .submission-info li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            font-size: 0.95em;
+        }
+        .submission-info li i { margin-right: 8px; color: var(--primary-yellow); }
+
+        /* --- Section: Noch Fragen? --- */
+        .faq-contact-section {
+            padding: var(--section-padding);
+            text-align: center;
+            background-color: var(--very-light-grey);
+        }
+         .faq-contact-section h2 { color: var(--primary-blue); margin-bottom: 15px; }
+         .faq-contact-section p { max-width: 600px; margin: 0 auto 25px auto; color: #555; }
+
+        /* --- Footer (aus vorherigen Seiten) --- */
+        .main-footer { background-color: var(--text-dark); color: rgba(255, 255, 255, 0.8); padding: 40px 0 20px 0; text-align: center; font-size: 0.9em; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); margin: 0 10px; }
+        .footer-links a:hover { color: var(--text-light); }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: rgba(255, 255, 255, 0.8); margin: 0 12px; font-size: 1.4em; }
+        .footer-socials a:hover { color: var(--primary-yellow); }
+
+        /* --- Responsive Anpassungen --- */
+        @media (min-width: 768px) {
+             .page-hero h1 { font-size: 3.8em; }
+             .process-steps { gap: 30px; } /* Etwas weniger Gap bei 2 Spalten */
+              /* Optional: Zweispaltig für Prozess auf Tablets, wenn gewünscht */
+             /* .process-steps { grid-template-columns: 1fr 1fr; } */
+        }
+        @media (min-width: 992px) {
+             .page-hero h1 { font-size: 4.2em; }
+             .main-header .container { padding: 0 30px; }
+             .main-nav ul { gap: 30px; }
+             .main-nav a { padding: 8px 10px; }
+        }
+
+        /* Mobile Menu Handling (aus vorherigen Seiten) */
+        @media (max-width: 991px) {
+            .menu-toggle { display: block; margin-left: auto; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--dark-blue); padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); }
+            .main-nav.is-active { display: block; }
+            .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            .main-nav li { width: 100%; text-align: center; }
+            .main-nav a { display: block; padding: 14px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-light); }
+            .main-nav li:last-child a { border-bottom: none; }
+            .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--primary-yellow); }
+            /* Spezielles Styling für den aktiven Button im Mobile Menü */
+            .main-nav .nav-button.active a { background-color: rgba(255, 221, 0, 0.2); border: none; }
+            .main-nav .nav-button a { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); margin: 10px 20px; padding: 12px 20px;}
+            .main-nav .nav-button a:hover { background-color: var(--primary-yellow); color: var(--text-dark); }
+            .header-socials { display: none; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="landingpage.html" class="logo">
+                <img src="https://placehold.co/150x50/ffdd00/0077cc?text=Goyatzer+SV&font=poppins" alt="Goyatzer SV Logo">
+            </a>
+            <nav class="main-nav" id="main-nav">
+                 <ul>
+                    <li><a href="fussball.html">Fußball</a></li>
+                    <li><a href="#">Tennis</a></li>
+                    <li><a href="#">Tischtennis</a></li>
+                    <li><a href="#">Aktuelles</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Impressionen</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <!-- Aktive Klasse zum Mitglied werden Button -->
+                    <li class="nav-button active"><a href="mitglied-werden.html">Mitglied werden!</a></li>
+                </ul>
+            </nav>
+             <div class="header-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+         <!-- Hero Section für Mitgliedschaft -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Werde Teil der Goyatzer SV Familie!
+                    <span>Gemeinschaft erleben – Sport treiben – Spaß haben!</span>
+                </h1>
+                <p>Wir freuen uns, dass du dich für eine Mitgliedschaft im Goyatzer SV interessierst. Entdecke die vielen Vorteile und werde noch heute Teil unserer starken Gemeinschaft.</p>
+            </div>
+        </section>
+
+        <!-- Section: Deine Vorteile -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">Deine Vorteile als Mitglied</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Starke Gemeinschaft</h3>
+                        <p>Finde neue Freunde und erlebe echtes Teamgefühl bei gemeinsamen Aktivitäten und Festen.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-futbol"></i> <!-- Oder fas fa-running -->
+                        <h3>Vielfältiges Sportangebot</h3>
+                        <p>Ob Fußball, Tennis oder Tischtennis – bei uns findest du die passende Sportart für dich.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Gesundheit & Fitness</h3>
+                        <p>Bleib fit, aktiv und fördere deine Gesundheit durch regelmäßige Bewegung und Training.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-child"></i>
+                        <h3>Förderung für Kinder</h3>
+                        <p>Wir bieten qualifiziertes Training und eine tolle Umgebung für die sportliche Entwicklung deines Kindes.</p>
+                    </div>
+                     <div class="benefit-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Regelmäßige Events</h3>
+                        <p>Nimm teil an spannenden Wettkämpfen, Turnieren, Trainingslagern und Vereinsfeiern.</p>
+                    </div>
+                     <div class="benefit-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Unterstützendes Umfeld</h3>
+                        <p>Engagierte Trainer und Mitglieder sorgen dafür, dass sich jeder bei uns wohlfühlt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Dein Weg zur Mitgliedschaft -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Dein Weg zur Mitgliedschaft - Ganz einfach!</h2>
+                <div class="process-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Antrag herunterladen</h3>
+                            <p>Lade dir unseren Mitgliedsantrag bequem als PDF-Datei herunter.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                         <div class="step-content">
+                            <h3>Ausfüllen & Unterschreiben</h3>
+                            <p>Fülle den Antrag vollständig aus und unterschreibe ihn (bei Minderjährigen durch einen Erziehungsberechtigten).</p>
+                        </div>
+                    </div>
+                     <div class="step-card">
+                        <div class="step-number">3</div>
+                         <div class="step-content">
+                            <h3>Einreichen</h3>
+                            <p>Sende uns den ausgefüllten Antrag per E-Mail, Post oder gib ihn persönlich bei einem Trainer oder Vorstandsmitglied ab.</p>
+                        </div>
+                    </div>
+                     <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Willkommen im Team!</h3>
+                            <p>Nach Prüfung deines Antrags heißen wir dich herzlich im Goyatzer SV willkommen!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Antrag Download & Einreichen -->
+        <section class="download-section">
+            <div class="container">
+                <h2>Jetzt Antrag herunterladen!</h2>
+                <p>Nur noch wenige Klicks trennen dich von deiner Mitgliedschaft im Goyatzer SV. Lade jetzt den Antrag herunter und werde Teil unseres Vereins!</p>
+                <div class="download-button-container">
+                     <!-- Link zum PDF ersetzen -->
+                    <a href="files/mitgliedsantrag-gsv.pdf" download class="button button-secondary button-large" aria-label="Mitgliedsantrag herunterladen">
+                        <i class="fas fa-download"></i> Mitgliedsantrag (PDF)
+                    </a>
+                    <!-- Optional: Link zur Beitragsordnung -->
+                     <p style="margin-top: 15px; font-size: 0.9em;"><a href="#" style="color: var(--primary-yellow); text-decoration: underline;">Zur aktuellen Beitragsordnung</a></p>
+                </div>
+                <div class="submission-info">
+                     <h3>So reichst du den Antrag ein:</h3>
+                     <ul>
+                         <li><i class="fas fa-envelope"></i>Per E-Mail an: <a href="mailto:mitglieder@goyatzer-sv.de" style="color: var(--text-light);">mitglieder@goyatzer-sv.de</a></li>
+                         <li><i class="fas fa-mail-bulk"></i>Per Post an unsere Vereinsadresse</li>
+                         <li><i class="fas fa-handshake"></i>Persönlich bei Trainern/Vorstand</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Noch Fragen? -->
+        <section class="faq-contact-section">
+             <div class="container">
+                <h2>Noch Fragen zur Mitgliedschaft?</h2>
+                <p>Wir helfen dir gerne weiter! Zögere nicht, uns bei Unklarheiten oder Fragen zu kontaktieren. Nutze unser Kontaktformular oder wende dich direkt an einen unserer Ansprechpartner.</p>
+                <a href="kontakt.html" class="button button-primary">Zur Kontaktseite</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Impressum</a> |
+                <a href="#">Datenschutz</a> |
+                <a href="#">Kontakt</a>
+            </div>
+             <div class="footer-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <p>© <span id="current-year"></span> Goyatzer SV. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle (aus vorherigen Seiten) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const burgerIcon = menuToggle.querySelector('i');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('is-active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                if (isActive) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-times');
+                } else {
+                    burgerIcon.classList.remove('fa-times');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+         // --- Footer Current Year (aus vorherigen Seiten) ---
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

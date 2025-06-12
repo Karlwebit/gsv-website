@@ -1,0 +1,20 @@
+### Folders
+.bundles
+.sass-cache
+/documentation
+/vendor
+node_modules
+.vscode
+.yo-repository
+
+### Files
+.DS_Store
+.ftppass
+*.tmp
+*.sublime-*
+*.bat
+*.bak
+*.error
+*.log
+npm-debug.log
+config-client.mjs

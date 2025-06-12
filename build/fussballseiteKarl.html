@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fußballabteilung - Trainingszeiten & Teams - Goyatzer SV</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Globale Styles & Variablen (aus Landingpage übernommen) --- */
+        :root {
+            --primary-blue: #0077cc;
+            --primary-yellow: #ffdd00;
+            --dark-blue: #005fa3;
+            --light-grey: #f0f0f0;
+            --very-light-grey: #f8f9fa; /* Noch heller */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --section-padding: 60px 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--dark-blue); }
+        ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.7em;
+            line-height: 1.3;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Buttons (aus Landingpage) --- */
+        .button { display: inline-block; padding: 12px 30px; border-radius: var(--border-radius); font-weight: 600; font-family: var(--heading-font); text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; font-size: 1em; }
+        .button-primary { background-color: var(--primary-blue); color: var(--text-light); }
+        .button-primary:hover { background-color: var(--dark-blue); transform: translateY(-2px); color: var(--text-light); }
+        .button-secondary { background-color: var(--primary-yellow); color: var(--text-dark); font-weight: 700; }
+        .button-secondary:hover { background-color: #e6c600; transform: translateY(-2px); color: var(--text-dark); }
+
+        /* --- Header (aus Landingpage, ggf. aktive Seite hervorheben) --- */
+        .main-header { background-color: var(--primary-blue); color: var(--text-light); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--text-light); font-weight: 500; padding: 8px 5px; position: relative; font-size: 0.95em; transition: color 0.3s ease; }
+        .main-nav a:hover, .main-nav li.active a { color: var(--primary-yellow); } /* Aktive Seite hervorheben */
+        .main-nav .nav-button a { background-color: var(--primary-yellow); color: var(--text-dark); padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        .main-nav .nav-button a:hover { background-color: #e6c600; color: var(--text-dark); }
+        .header-socials { display: flex; gap: 15px; margin-left: 20px; }
+        .header-socials a { color: var(--text-light); font-size: 1.1em; }
+        .header-socials a:hover { color: var(--primary-yellow); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 24px; cursor: pointer; }
+
+        /* --- Page Hero Section --- */
+        .page-hero {
+            padding: 60px 0;
+            background: linear-gradient(rgba(0, 119, 204, 0.8), rgba(0, 95, 163, 0.8)), url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80') no-repeat center center;
+            background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--text-light); /* Überschrift hell */
+            margin-bottom: 10px;
+        }
+        .page-hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* --- Teams Section --- */
+        .teams-section { padding: var(--section-padding); background-color: var(--very-light-grey); }
+        .section-title {
+             text-align: center;
+             font-size: 2.4em;
+             margin-bottom: 50px;
+             color: var(--primary-blue);
+        }
+        .teams-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: 1 Spalte */
+            gap: 35px;
+        }
+        .team-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            display: flex; /* Flex für interne Anordnung */
+            flex-direction: column;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .team-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+         }
+
+        .team-card-header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .team-card-header h3 {
+            margin: 0;
+            font-size: 1.6em;
+            color: var(--text-light);
+        }
+        .team-card-body {
+            padding: 25px;
+            flex-grow: 1; /* Nimmt verfügbaren Platz ein */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Abstand zwischen Elementen */
+        }
+        .info-row {
+            display: flex;
+            align-items: flex-start; /* Icons oben ausrichten */
+            gap: 12px; /* Abstand Icon zu Text */
+        }
+        .info-row i {
+            color: var(--primary-blue);
+            font-size: 1.2em;
+            margin-top: 3px; /* Leichte Anpassung der vertikalen Ausrichtung */
+            flex-shrink: 0; /* Verhindert Schrumpfen des Icons */
+             width: 20px; /* Feste Breite für Ausrichtung */
+             text-align: center;
+        }
+        .info-row span { font-weight: 600; color: var(--text-dark); }
+        .info-row p { margin: 0; color: #555; line-height: 1.5; }
+        .coach-info { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+        .coach-info img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+
+        /* --- Coaches Section --- */
+        .coaches-section { padding: var(--section-padding); }
+        .coaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
+            gap: 30px;
+        }
+        .coach-card {
+            text-align: center;
+            background-color: var(--text-light);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .coach-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+         }
+        .coach-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px auto;
+            border: 4px solid var(--light-grey);
+        }
+        .coach-card h4 { font-size: 1.4em; margin-bottom: 5px; color: var(--primary-blue); }
+        .coach-card p.role { font-weight: 600; color: var(--text-dark); margin-bottom: 15px; }
+        .coach-card p.contact { font-size: 0.9em; color: #666; }
+        .coach-card p.contact i { margin-right: 5px; }
+
+        /* --- Probetraining CTA Section --- */
+        .cta-probetraining {
+            padding: 50px 0;
+            background-color: var(--primary-yellow);
+            text-align: center;
+        }
+        .cta-probetraining h2 {
+            font-size: 2.2em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .cta-probetraining p {
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            color: var(--text-dark);
+            opacity: 0.9;
+        }
+        .cta-probetraining .button-primary:hover {
+            background-color: var(--dark-blue); /* Überschreiben für besseren Kontrast auf Gelb */
+        }
+
+        /* --- Footer (aus Landingpage) --- */
+        .main-footer { background-color: var(--text-dark); color: rgba(255, 255, 255, 0.8); padding: 40px 0 20px 0; text-align: center; font-size: 0.9em; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); margin: 0 10px; }
+        .footer-links a:hover { color: var(--text-light); }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: rgba(255, 255, 255, 0.8); margin: 0 12px; font-size: 1.4em; }
+        .footer-socials a:hover { color: var(--primary-yellow); }
+
+        /* --- Responsive Anpassungen --- */
+        @media (min-width: 768px) {
+            .page-hero h1 { font-size: 3.5em; }
+            .teams-grid { grid-template-columns: repeat(2, 1fr); } /* 2 Spalten Tablet */
+        }
+
+        @media (min-width: 992px) {
+            .page-hero h1 { font-size: 4em; }
+            .teams-grid { grid-template-columns: repeat(3, 1fr); } /* 3 Spalten Desktop */
+             .main-header .container { padding: 0 30px; }
+             .main-nav ul { gap: 30px; }
+             .main-nav a { padding: 8px 10px; }
+        }
+
+        /* Mobile Menu Handling (aus Landingpage) */
+        @media (max-width: 991px) {
+            .menu-toggle { display: block; margin-left: auto; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--dark-blue); padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); }
+            .main-nav.is-active { display: block; }
+            .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            .main-nav li { width: 100%; text-align: center; }
+            .main-nav a { display: block; padding: 14px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-light); }
+            .main-nav li:last-child a { border-bottom: none; }
+            .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--primary-yellow); }
+            .main-nav .nav-button { margin-top: 10px; padding-bottom: 10px;}
+            .main-nav .nav-button a { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); }
+            .main-nav .nav-button a:hover { background-color: var(--primary-yellow); color: var(--text-dark); }
+            .header-socials { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (identisch zur Landingpage) -->
+    <header class="main-header">
+        <div class="container">
+            <a href="landingpage.html" class="logo"> <!-- Link zur Landingpage -->
+                <img src="https://placehold.co/150x50/ffdd00/0077cc?text=Goyatzer+SV&font=poppins" alt="Goyatzer SV Logo">
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <!-- Aktive Klasse zur aktuellen Seite hinzufügen (hier Fußball) -->
+                    <li class="active"><a href="fussball.html">Fußball</a></li>
+                    <li><a href="#">Tennis</a></li>
+                    <li><a href="#">Tischtennis</a></li>
+                    <li><a href="#">Aktuelles</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Impressionen</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li class="nav-button"><a href="#">Mitglied werden!</a></li>
+                </ul>
+            </nav>
+             <div class="header-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section für die Fußballseite -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Unsere Teams am Ball</h1>
+                <p>Hier findest du alle Trainingszeiten, Ansprechpartner und Informationen zu unseren Fußballmannschaften – von den Jüngsten bis zu den Herren.</p>
+            </div>
+        </section>
+
+        <!-- Trainingszeiten & Teams Section -->
+        <section class="teams-section">
+            <div class="container">
+                <h2 class="section-title">Trainingszeiten & Mannschaften</h2>
+                <div class="teams-grid">
+                    <!-- Beispiel Team Card 1: Herren -->
+                    <article class="team-card">
+                        <div class="team-card-header"><h3>Herrenmannschaft</h3></div>
+                        <div class="team-card-body">
+                            <div class="info-row">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div><span>Trainingstage:</span><p>Dienstag & Donnerstag</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-clock"></i>
+                                <div><span>Uhrzeit:</span><p>19:00 - 20:30 Uhr</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div><span>Ort:</span><p>Hauptplatz Goyatz</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-user-tie"></i>
+                                <div class="coach-info">
+                                    <!-- Trainerbild ersetzen -->
+                                    <img src="https://placehold.co/40x40/cccccc/333333?text=MP" alt="Trainer Max Power">
+                                    <div><span>Trainer:</span><p>Max Power</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Beispiel Team Card 2: A-Junioren -->
+                    <article class="team-card">
+                         <div class="team-card-header"><h3>A-Junioren (U19)</h3></div>
+                         <div class="team-card-body">
+                             <div class="info-row">
+                                 <i class="fas fa-calendar-alt"></i>
+                                 <div><span>Trainingstage:</span><p>Montag & Mittwoch</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-clock"></i>
+                                 <div><span>Uhrzeit:</span><p>18:00 - 19:30 Uhr</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-map-marker-alt"></i>
+                                 <div><span>Ort:</span><p>Kunstrasenplatz Goyatz</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-user-tie"></i>
+                                 <div class="coach-info">
+                                     <!-- Trainerbild ersetzen -->
+                                     <img src="https://placehold.co/40x40/cccccc/333333?text=AS" alt="Trainer Anna Schmidt">
+                                     <div><span>Trainerin:</span><p>Anna Schmidt</p></div>
+                                 </div>
+                             </div>
+                         </div>
+                    </article>
+
+                    <!-- Beispiel Team Card 3: D-Jugend -->
+                     <article class="team-card">
+                         <div class="team-card-header"><h3>D-Jugend (U13)</h3></div>
+                         <div class="team-card-body">
+                             <div class="info-row">
+                                 <i class="fas fa-calendar-alt"></i>
+                                 <div><span>Trainingstage:</span><p>Dienstag & Freitag</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-clock"></i>
+                                 <div><span>Uhrzeit:</span><p>17:00 - 18:30 Uhr</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-map-marker-alt"></i>
+                                 <div><span>Ort:</span><p>Hauptplatz Goyatz</p></div>
+                             </div>
+                             <div class="info-row">
+                                 <i class="fas fa-user-tie"></i>
+                                 <div class="coach-info">
+                                     <!-- Trainerbild ersetzen -->
+                                     <img src="https://placehold.co/40x40/cccccc/333333?text=TM" alt="Trainer Tom Müller">
+                                     <div><span>Trainer:</span><p>Tom Müller & Team</p></div>
+                                 </div>
+                             </div>
+                         </div>
+                     </article>
+
+                    <!-- Beispiel Team Card 4: F-Jugend -->
+                    <article class="team-card">
+                        <div class="team-card-header"><h3>F-Jugend (U9)</h3></div>
+                        <div class="team-card-body">
+                            <div class="info-row">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div><span>Trainingstag:</span><p>Mittwoch</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-clock"></i>
+                                <div><span>Uhrzeit:</span><p>16:30 - 17:45 Uhr</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div><span>Ort:</span><p>Kleinspielfeld Goyatz</p></div>
+                            </div>
+                            <div class="info-row">
+                                <i class="fas fa-user-tie"></i>
+                                <div class="coach-info">
+                                     <!-- Trainerbild ersetzen -->
+                                     <img src="https://placehold.co/40x40/cccccc/333333?text=LF" alt="Trainerin Lisa Fischer">
+                                    <div><span>Trainerin:</span><p>Lisa Fischer</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Füge hier weitere Team Cards hinzu -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainer Section -->
+        <section class="coaches-section">
+            <div class="container">
+                <h2 class="section-title">Unsere Trainer</h2>
+                <div class="coaches-grid">
+                    <!-- Beispiel Coach Card 1 -->
+                    <div class="coach-card">
+                        <!-- Bild ersetzen -->
+                        <img src="https://placehold.co/120x120/cccccc/333333?text=MP" alt="Trainer Max Power">
+                        <h4>Max Power</h4>
+                        <p class="role">Trainer Herrenmannschaft</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> max.power@goyatzer-sv.de</p>
+                    </div>
+
+                     <!-- Beispiel Coach Card 2 -->
+                    <div class="coach-card">
+                        <!-- Bild ersetzen -->
+                        <img src="https://placehold.co/120x120/cccccc/333333?text=AS" alt="Trainerin Anna Schmidt">
+                        <h4>Anna Schmidt</h4>
+                        <p class="role">Trainerin A-Junioren</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> anna.schmidt@goyatzer-sv.de</p>
+                    </div>
+
+                    <!-- Beispiel Coach Card 3 -->
+                    <div class="coach-card">
+                         <!-- Bild ersetzen -->
+                        <img src="https://placehold.co/120x120/cccccc/333333?text=TM" alt="Trainer Tom Müller">
+                        <h4>Tom Müller</h4>
+                        <p class="role">Trainer D-Jugend</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> tom.mueller@goyatzer-sv.de</p>
+                    </div>
+
+                     <!-- Beispiel Coach Card 4 -->
+                     <div class="coach-card">
+                          <!-- Bild ersetzen -->
+                         <img src="https://placehold.co/120x120/cccccc/333333?text=LF" alt="Trainerin Lisa Fischer">
+                         <h4>Lisa Fischer</h4>
+                         <p class="role">Trainerin F-Jugend</p>
+                         <p class="contact"><i class="fas fa-envelope"></i> lisa.fischer@goyatzer-sv.de</p>
+                     </div>
+
+                     <!-- Füge weitere Trainer hinzu -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Probetraining CTA Section -->
+        <section class="cta-probetraining">
+            <div class="container">
+                <h2>Lust auf ein Probetraining?</h2>
+                <p>Du oder dein Kind möchte gerne bei uns mitkicken? Kein Problem! Melde dich einfach beim jeweiligen Trainer oder komm zu den Trainingszeiten vorbei. Wir freuen uns auf dich!</p>
+                <a href="#" class="button button-primary">Kontakt aufnehmen</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (identisch zur Landingpage) -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Impressum</a> |
+                <a href="#">Datenschutz</a> |
+                <a href="#">Kontakt</a>
+            </div>
+             <div class="footer-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <p>© <span id="current-year"></span> Goyatzer SV. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle (aus Landingpage) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const burgerIcon = menuToggle.querySelector('i');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('is-active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                if (isActive) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-times');
+                } else {
+                    burgerIcon.classList.remove('fa-times');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+         // --- Footer Current Year (aus Landingpage) ---
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

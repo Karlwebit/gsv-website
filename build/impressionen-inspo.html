@@ -1,0 +1,542 @@
+--- START OF FILE impressionenKarl.html ---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressionen - Galerie - Goyatzer SV</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Optional: Lightbox CSS (wenn du eine Lightbox-Bibliothek verwendest) -->
+    <!-- <link href="path/to/lightbox.min.css" rel="stylesheet" /> -->
+
+    <style>
+        /* --- Globale Styles & Variablen (aus vorherigen Seiten) --- */
+        :root {
+            --primary-blue: #0077cc;
+            --primary-yellow: #ffdd00;
+            --dark-blue: #005fa3;
+            --light-grey: #f0f0f0;
+            --very-light-grey: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --section-padding: 60px 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+        }
+        img, video { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--dark-blue); }
+        ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.7em;
+            line-height: 1.3;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Buttons (aus vorherigen Seiten) --- */
+        .button { display: inline-block; padding: 12px 30px; border-radius: var(--border-radius); font-weight: 600; font-family: var(--heading-font); text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; font-size: 1em; }
+        .button-primary { background-color: var(--primary-blue); color: var(--text-light); }
+        .button-primary:hover { background-color: var(--dark-blue); transform: translateY(-2px); color: var(--text-light); }
+        .button-secondary { background-color: var(--primary-yellow); color: var(--text-dark); font-weight: 700; }
+        .button-secondary:hover { background-color: #e6c600; transform: translateY(-2px); color: var(--text-dark); }
+        .button-small { padding: 8px 18px; font-size: 0.9em; } /* Kleinerer Button für Galerie-Links */
+
+        /* --- Header (aus vorherigen Seiten) --- */
+        .main-header { background-color: var(--primary-blue); color: var(--text-light); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--text-light); font-weight: 500; padding: 8px 5px; position: relative; font-size: 0.95em; transition: color 0.3s ease; }
+        .main-nav a:hover, .main-nav li.active a { color: var(--primary-yellow); } /* Aktive Seite hervorheben */
+        .main-nav .nav-button a { background-color: var(--primary-yellow); color: var(--text-dark); padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        .main-nav .nav-button a:hover { background-color: #e6c600; color: var(--text-dark); }
+        .header-socials { display: flex; gap: 15px; margin-left: 20px; }
+        .header-socials a { color: var(--text-light); font-size: 1.1em; }
+        .header-socials a:hover { color: var(--primary-yellow); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 24px; cursor: pointer; }
+
+
+        /* --- Page Hero Section (Angepasst für Impressionen) --- */
+        .page-hero {
+            padding: 60px 0;
+            /* Hintergrundbild für Galerie/Impressionen */
+             background: linear-gradient(rgba(0, 119, 204, 0.8), rgba(0, 95, 163, 0.8)), url('https://images.unsplash.com/photo-1511782646385-997b01058362?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+             background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 3em; font-weight: 700; color: var(--text-light); margin-bottom: 10px; }
+        .page-hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+        /* --- Section: Galerie Übersicht --- */
+        .gallery-overview-section { padding: var(--section-padding); background-color: var(--very-light-grey); }
+        .section-title {
+             text-align: center;
+             font-size: 2.4em;
+             margin-bottom: 50px;
+             color: var(--primary-blue);
+        }
+        .event-gallery-grid {
+            display: grid;
+             /* Responsive Grid für die Event-Karten */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .event-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Zeigt an, dass es klickbar ist */
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .event-image {
+            height: 180px; /* Höhe für das Vorschau-Bild */
+            overflow: hidden;
+        }
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .event-card:hover .event-image img {
+            transform: scale(1.05);
+        }
+        .event-info {
+            padding: 20px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .event-info h3 {
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            color: var(--dark-blue);
+        }
+        .event-date {
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .event-info p { /* Für optionale Beschreibung oder Anzahl Bilder */
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+             flex-grow: 1; /* Schiebt den Button nach unten */
+        }
+        .view-gallery-btn {
+             align-self: flex-start; /* Button linksbündig */
+             margin-top: auto; /* Stellt sicher, dass der Button unten ist */
+        }
+
+        /* --- Section: Detail Galerie (wird per JS eingeblendet) --- */
+        .gallery-detail-section {
+            padding: 40px 0; /* Weniger Padding als Haupt-Section */
+            background-color: var(--light-grey); /* Leichter Hintergrund zur Abhebung */
+            margin-top: 30px; /* Abstand zur Übersicht */
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            /* display: none; Wird per JS gesteuert */
+        }
+        .gallery-detail-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 30px;
+        }
+        .gallery-detail-header h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0; /* Zurücksetzen des Standard-Margins */
+        }
+        .close-gallery-btn {
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #888;
+            cursor: pointer;
+            padding: 5px;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .close-gallery-btn:hover { color: var(--text-dark); }
+
+        .media-grid {
+            display: grid;
+            /* Grid für die Bilder/Videos */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Kleinere Thumbnails */
+            gap: 15px;
+        }
+        .media-item a { display: block; /* Wichtig für Lightbox */ border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: box-shadow 0.3s ease; }
+        .media-item a:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .media-item img {
+            width: 100%;
+            height: 120px; /* Feste Höhe für Thumbnails */
+            object-fit: cover;
+        }
+        /* Style für Video-Thumbnails (wenn du welche hast) */
+        .media-item video { width: 100%; height: 120px; background-color: #000; }
+
+        /* Hilfsklasse zum Ausblenden */
+        .hidden { display: none; }
+
+        /* --- Footer (aus vorherigen Seiten) --- */
+        .main-footer { background-color: var(--text-dark); color: rgba(255, 255, 255, 0.8); padding: 40px 0 20px 0; text-align: center; font-size: 0.9em; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); margin: 0 10px; }
+        .footer-links a:hover { color: var(--text-light); }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: rgba(255, 255, 255, 0.8); margin: 0 12px; font-size: 1.4em; }
+        .footer-socials a:hover { color: var(--primary-yellow); }
+
+
+        /* --- Responsive Anpassungen --- */
+        @media (min-width: 768px) {
+            .page-hero h1 { font-size: 3.5em; }
+             .media-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } /* Etwas größere Thumbnails */
+        }
+
+        @media (min-width: 992px) {
+            .page-hero h1 { font-size: 4em; }
+            .main-header .container { padding: 0 30px; }
+             .main-nav ul { gap: 30px; }
+             .main-nav a { padding: 8px 10px; }
+             .media-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+        }
+
+        /* Mobile Menu Handling (aus vorherigen Seiten) */
+        @media (max-width: 991px) {
+            .menu-toggle { display: block; margin-left: auto; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--dark-blue); padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); }
+            .main-nav.is-active { display: block; }
+            .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            .main-nav li { width: 100%; text-align: center; }
+            .main-nav a { display: block; padding: 14px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-light); }
+            .main-nav li:last-child a { border-bottom: none; }
+            .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--primary-yellow); }
+            .main-nav .nav-button { margin-top: 10px; padding-bottom: 10px;}
+            .main-nav .nav-button a { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); }
+            .main-nav .nav-button a:hover { background-color: var(--primary-yellow); color: var(--text-dark); }
+            .header-socials { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="landingpage.html" class="logo">
+                <img src="https://placehold.co/150x50/ffdd00/0077cc?text=Goyatzer+SV&font=poppins" alt="Goyatzer SV Logo">
+            </a>
+            <nav class="main-nav" id="main-nav">
+                 <ul>
+                    <li><a href="fussball.html">Fußball</a></li>
+                    <li><a href="tennis-tischtennis.html">Tennis & TT</a></li>
+                    <li><a href="aktuellesKarl.html">Aktuelles</a></li>
+                    <li><a href="#">Über uns</a></li>
+                     <!-- Aktive Klasse zur aktuellen Seite hinzufügen -->
+                    <li class="active"><a href="impressionenKarl.html">Impressionen</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-button"><a href="mitglied-werden.html">Mitglied werden!</a></li>
+                </ul>
+            </nav>
+             <div class="header-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section für Impressionen -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Impressionen & Highlights</h1>
+                <p>Erleben Sie die schönsten Momente aus unseren Turnieren, Spielen und Vereinsveranstaltungen in unserer Galerie.</p>
+            </div>
+        </section>
+
+        <!-- Galerie Übersicht Section -->
+        <section class="gallery-overview-section">
+            <div class="container">
+                <h2 class="section-title">Galerie: Turniere & Events</h2>
+                <div class="event-gallery-grid">
+
+                    <!-- Beispiel Event Card 1 -->
+                    <article class="event-card" data-gallery-target="#gallery-sommerturnier-2023">
+                        <div class="event-image">
+                             <!-- Repräsentatives Bild für das Event -->
+                            <img src="https://placehold.co/600x360/0077cc/ffffff?text=Sommerturnier+2023" alt="Sommerturnier 2023 Vorschau">
+                        </div>
+                        <div class="event-info">
+                            <h3>Sommerturnier Fußball 2023</h3>
+                            <span class="event-date"><i class="fas fa-calendar-alt"></i> Juli 2023</span>
+                            <p>Spannende Spiele und tolle Atmosphäre bei unserem jährlichen Sommerturnier.</p>
+                            <button class="button button-small button-primary view-gallery-btn">Galerie ansehen</button>
+                        </div>
+                    </article>
+
+                     <!-- Beispiel Event Card 2 -->
+                    <article class="event-card" data-gallery-target="#gallery-vereinsfest-2023">
+                        <div class="event-image">
+                             <!-- Repräsentatives Bild für das Event -->
+                             <img src="https://placehold.co/600x360/ffdd00/333333?text=Vereinsfest+2023" alt="Vereinsfest 2023 Vorschau">
+                        </div>
+                        <div class="event-info">
+                            <h3>Großes Vereinsfest 2023</h3>
+                            <span class="event-date"><i class="fas fa-calendar-alt"></i> Oktober 2023</span>
+                            <p>Ein Fest für alle Mitglieder, Freunde und Familien mit Spiel, Spaß und guter Laune.</p>
+                            <button class="button button-small button-primary view-gallery-btn">Galerie ansehen</button>
+                        </div>
+                    </article>
+
+                     <!-- Beispiel Event Card 3 -->
+                    <article class="event-card" data-gallery-target="#gallery-tt-meisterschaft-2023">
+                        <div class="event-image">
+                            <!-- Repräsentatives Bild für das Event -->
+                             <img src="https://placehold.co/600x360/333333/ffffff?text=TT+Meisterschaft+23" alt="Tischtennis Meisterschaft 2023 Vorschau">
+                        </div>
+                        <div class="event-info">
+                            <h3>Tischtennis Kreismeisterschaft</h3>
+                            <span class="event-date"><i class="fas fa-calendar-alt"></i> September 2023</span>
+                            <p>Impressionen von den packenden Duellen bei der Kreismeisterschaft in unserer Halle.</p>
+                            <button class="button button-small button-primary view-gallery-btn">Galerie ansehen</button>
+                        </div>
+                    </article>
+
+                    <!-- Füge hier weitere Event Cards hinzu -->
+
+                </div> <!-- /.event-gallery-grid -->
+
+                <!-- Container für die Detail-Galerien (wird hier eingefügt) -->
+                <div id="gallery-detail-container">
+                    <!-- Hier werden die Detail-Galerien per JS geladen oder angezeigt -->
+                </div>
+
+            </div> <!-- /.container -->
+        </section> <!-- /.gallery-overview-section -->
+
+        <!-- === Vorlagen für die Detail-Galerien (werden per JS geklont/gefüllt) === -->
+        <!-- Diese könnten auch direkt hier platziert und per JS ein-/ausgeblendet werden,
+             oder du lädst den Inhalt dynamisch. Hier als Vorlage im HTML: -->
+
+        <template id="gallery-template-sommerturnier-2023">
+             <section class="gallery-detail-section" id="gallery-sommerturnier-2023">
+                <div class="container">
+                    <div class="gallery-detail-header">
+                        <h3>Impressionen: Sommerturnier Fußball 2023</h3>
+                        <button class="close-gallery-btn" aria-label="Galerie schließen">&times;</button>
+                    </div>
+                    <div class="media-grid">
+                        <!-- Bilder für dieses Event -->
+                        <div class="media-item">
+                            <!-- WICHTIG: Füge hier Links zu den großen Bildern und data-attribute für Lightbox ein -->
+                            <a href="https://placehold.co/1200x800/0077cc/ffffff?text=Bild+1" data-lightbox="sommerturnier23" data-title="Spannendes Finale">
+                                <img src="https://placehold.co/300x200/0077cc/ffffff?text=Bild+1" alt="Spannendes Finale - Sommerturnier 2023">
+                            </a>
+                        </div>
+                        <div class="media-item">
+                            <a href="https://placehold.co/1200x800/0077cc/ffffff?text=Bild+2" data-lightbox="sommerturnier23" data-title="Siegerehrung Jugend">
+                                <img src="https://placehold.co/300x200/0077cc/ffffff?text=Bild+2" alt="Siegerehrung Jugend - Sommerturnier 2023">
+                            </a>
+                        </div>
+                         <div class="media-item">
+                            <a href="https://placehold.co/1200x800/0077cc/ffffff?text=Bild+3" data-lightbox="sommerturnier23" data-title="Teamfoto Herren">
+                                <img src="https://placehold.co/300x200/0077cc/ffffff?text=Bild+3" alt="Teamfoto Herren - Sommerturnier 2023">
+                            </a>
+                        </div>
+                         <div class="media-item">
+                             <!-- Beispiel Video (wenn du keine Lightbox für Videos hast) -->
+                             <video controls poster="https://placehold.co/300x200/005fa3/ffffff?text=Video+Highlight">
+                                 <source src="path/to/your/video.mp4" type="video/mp4">
+                                 Ihr Browser unterstützt das Video-Tag nicht.
+                             </video>
+                         </div>
+                         <!-- Weitere Bilder / Videos -->
+                    </div>
+                </div>
+            </section>
+        </template>
+
+         <template id="gallery-template-vereinsfest-2023">
+             <section class="gallery-detail-section" id="gallery-vereinsfest-2023">
+                <div class="container">
+                    <div class="gallery-detail-header">
+                         <h3>Impressionen: Großes Vereinsfest 2023</h3>
+                         <button class="close-gallery-btn" aria-label="Galerie schließen">&times;</button>
+                    </div>
+                     <div class="media-grid">
+                          <!-- Bilder für dieses Event -->
+                          <div class="media-item">
+                              <a href="https://placehold.co/1200x800/ffdd00/333333?text=Fest+Bild+1" data-lightbox="vereinsfest23" data-title="Gemütliches Beisammensein">
+                                 <img src="https://placehold.co/300x200/ffdd00/333333?text=Fest+Bild+1" alt="Gemütliches Beisammensein - Vereinsfest 2023">
+                              </a>
+                          </div>
+                         <div class="media-item">
+                             <a href="https://placehold.co/1200x800/ffdd00/333333?text=Fest+Bild+2" data-lightbox="vereinsfest23" data-title="Kinder beim Spielen">
+                                 <img src="https://placehold.co/300x200/ffdd00/333333?text=Fest+Bild+2" alt="Kinder beim Spielen - Vereinsfest 2023">
+                             </a>
+                         </div>
+                          <!-- Weitere Bilder -->
+                     </div>
+                </div>
+             </section>
+        </template>
+
+        <template id="gallery-template-tt-meisterschaft-2023">
+             <section class="gallery-detail-section" id="gallery-tt-meisterschaft-2023">
+                 <div class="container">
+                     <div class="gallery-detail-header">
+                         <h3>Impressionen: Tischtennis Kreismeisterschaft</h3>
+                          <button class="close-gallery-btn" aria-label="Galerie schließen">&times;</button>
+                    </div>
+                     <div class="media-grid">
+                         <!-- Bilder für dieses Event -->
+                         <div class="media-item">
+                             <a href="https://placehold.co/1200x800/333333/ffffff?text=TT+Bild+1" data-lightbox="ttmeisterschaft23" data-title="Konzentrierter Aufschlag">
+                                <img src="https://placehold.co/300x200/333333/ffffff?text=TT+Bild+1" alt="Konzentrierter Aufschlag - TT Meisterschaft 2023">
+                            </a>
+                        </div>
+                        <!-- Weitere Bilder -->
+                    </div>
+                </div>
+            </section>
+        </template>
+
+    </main>
+
+    <!-- Footer -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Impressum</a> |
+                <a href="#">Datenschutz</a> |
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+             <div class="footer-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <p>© <span id="current-year"></span> Goyatzer SV. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Optional: Lightbox JS (wenn du eine Lightbox-Bibliothek verwendest) -->
+    <!-- <script src="path/to/lightbox-plus-jquery.min.js"></script> -->
+
+    <script>
+        // --- Mobile Menu Toggle (aus vorherigen Seiten) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const burgerIcon = menuToggle.querySelector('i');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('is-active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                if (isActive) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-times');
+                } else {
+                    burgerIcon.classList.remove('fa-times');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+         // --- Footer Current Year (aus vorherigen Seiten) ---
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+         // --- Galerie Detail Ansicht Logik ---
+         const eventCards = document.querySelectorAll('.event-card');
+         const galleryDetailContainer = document.getElementById('gallery-detail-container');
+
+         eventCards.forEach(card => {
+            card.addEventListener('click', (event) => {
+                // Verhindern, dass direkt der Button geklickt werden muss
+                // Erlaube Klick auf die ganze Karte
+                // Außer der Klick war explizit auf einen Link/Button innerhalb der Karte
+                if (event.target.closest('a, button') && !event.target.closest('.view-gallery-btn')) {
+                    return; // Wenn auf einen anderen Link geklickt wurde, nichts tun
+                }
+
+                const targetGallerySelector = card.dataset.galleryTarget; // z.B. "#gallery-sommerturnier-2023"
+                const templateSelector = `#gallery-template-${targetGallerySelector.substring(9)}`; // z.B. #gallery-template-sommerturnier-2023
+
+                const template = document.querySelector(templateSelector);
+                const galleryDetailContainer = document.getElementById('gallery-detail-container');
+
+                if (template && galleryDetailContainer) {
+                    // Alten Inhalt leeren
+                    galleryDetailContainer.innerHTML = '';
+
+                    // Neuen Inhalt aus Template klonen und einfügen
+                    const clone = template.content.cloneNode(true);
+                    galleryDetailContainer.appendChild(clone);
+
+                    // Scroll zur Detailansicht
+                     const detailSection = galleryDetailContainer.querySelector('.gallery-detail-section');
+                     if (detailSection) {
+                         detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                         // Event Listener für den Schließen-Button im neu eingefügten Bereich hinzufügen
+                        const closeBtn = detailSection.querySelector('.close-gallery-btn');
+                        if(closeBtn) {
+                            closeBtn.addEventListener('click', () => {
+                                galleryDetailContainer.innerHTML = ''; // Detailansicht leeren/schließen
+                            });
+                        }
+                     }
+
+
+                    // WICHTIG: Wenn du eine Lightbox verwendest, musst du sie hier ggf. neu initialisieren,
+                    // nachdem die neuen Elemente zum DOM hinzugefügt wurden!
+                    // Beispiel (Syntax hängt von der Library ab):
+                    // if (typeof lightbox !== 'undefined') {
+                    //     lightbox.reload(); // oder ähnlich
+                    // }
+                } else {
+                    console.error('Template oder Detail-Container nicht gefunden für:', targetGallerySelector);
+                }
+            });
+         });
+
+         // Hinweis: Der Schließen-Button-Listener wird jetzt dynamisch hinzugefügt,
+         // wenn die Galerie angezeigt wird (siehe oben).
+
+    </script>
+
+</body>
+</html>
+--- END OF FILE impressionenKarl.html ---

@@ -1,7 +1,6 @@
 ### Folders
 .bundles
 .sass-cache
-/build
 /documentation
 /vendor
 node_modules

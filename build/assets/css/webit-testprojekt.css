@@ -89,7 +89,6 @@
 
 .swiper-backface-hidden .swiper-slide {
   transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -296,7 +295,8 @@
 .swiper-button-next svg, .swiper-button-prev svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transform-origin: center;
 }
 
@@ -412,7 +412,8 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -572,7 +573,8 @@ button.swiper-pagination-bullet {
 .swiper-zoom-container > canvas, .swiper-zoom-container > img, .swiper-zoom-container > svg {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .swiper-slide-zoomed {
@@ -630,7 +632,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cube .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
   visibility: hidden;
@@ -684,7 +685,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-bottom, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-left, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-right, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-top {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -694,7 +694,6 @@ button.swiper-pagination-bullet {
 
 .swiper-flip .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
 }
@@ -709,12 +708,10 @@ button.swiper-pagination-bullet {
 
 .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-bottom, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-left, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-right, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-top {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .swiper-creative .swiper-slide {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   transition-property: transform, opacity, height;
@@ -726,7 +723,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cards .swiper-slide {
   transform-origin: center bottom;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
 }
@@ -736,7 +732,8 @@ a:focus, input:focus, textarea:focus {
 }
 
 body, p, h1, h2, h3, h4, h5, h6, div {
-  hyphens: auto;
+  -webkit-hyphens: auto;
+          hyphens: auto;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -1411,7 +1408,7 @@ h4 {
   margin: 15vh auto;
   place-items: stretch;
 }
-.teaser-categories .teaser-categories-item:nth-child(2) .teaser-categories-item-text, .teaser-categories .teaser-categories-item:nth-child(3) .teaser-categories-item-text {
+.teaser-categories .teaser-categories-item:nth-of-type(2) .teaser-categories-item-text, .teaser-categories .teaser-categories-item:nth-of-type(3) .teaser-categories-item-text {
   background-color: #fbe91d;
   color: #0e79bf;
 }
@@ -1421,6 +1418,7 @@ h4 {
   flex-direction: column;
   min-height: 40vh;
   width: 100%;
+  height: 100%;
   cursor: pointer;
   filter: drop-shadow(2px 15px 13px #e0d9d9);
 }
@@ -1437,15 +1435,19 @@ h4 {
   border-radius: 25px 25px 0 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .teaser-categories .teaser-categories-item a .teaser-categories-item-img a img {
   border-radius: 25px 25px 0 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .teaser-categories .teaser-categories-item a .teaser-categories-item-text {
   padding: 4vh 4vw;
@@ -1507,11 +1509,11 @@ h4 {
     gap: 5vh;
     max-width: 70%;
   }
-  .teaser-categories .teaser-categories-item:nth-child(2) .teaser-categories-item-text, .teaser-categories .teaser-categories-item:nth-child(4) .teaser-categories-item-text {
+  .teaser-categories .teaser-categories-item:nth-of-type(2) .teaser-categories-item-text, .teaser-categories .teaser-categories-item:nth-of-type(4) .teaser-categories-item-text {
     background-color: #fbe91d;
     color: #0e79bf;
   }
-  .teaser-categories .teaser-categories-item:nth-child(3) .teaser-categories-item-text {
+  .teaser-categories .teaser-categories-item:nth-of-type(3) .teaser-categories-item-text {
     background-color: #0e79bf;
     color: #fbe91d;
   }
@@ -1632,8 +1634,10 @@ html {
   height: 80vh;
   min-width: auto;
   border-radius: 25px;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .slider .swiper-wrapper .swiper-slide .swiper-slide-wrapper .swiper-slider-pause {
   display: flex;
@@ -1894,8 +1898,10 @@ html {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .landing-page .teaser-landingpage .teaser-landingpage-item .teaser-landingpage-item-text {
   flex: 1;
@@ -1956,8 +1962,10 @@ html {
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   padding-top: 3vh;
 }
 .board .board-content .board-member .board-member-text {
@@ -1984,7 +1992,8 @@ html {
   align-items: center;
   width: 90%;
   margin: 5vh auto 5vh;
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0));
+          mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0));
 }
 .testimonials-slider .swiper-wrapper {
   box-sizing: border-box;
@@ -2029,8 +2038,10 @@ html {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .testimonials-slider .swiper-wrapper .swiper-slide .testimonial-item .testimonial-header .testimonial-name {
   color: #1e1e1e;
@@ -2126,7 +2137,8 @@ html {
   }
   .landing-page .testimonials-slider {
     max-width: 60vw;
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 5%, rgb(0, 0, 0) 95%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 5%, rgb(0, 0, 0) 95%, rgba(0, 0, 0, 0));
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 5%, rgb(0, 0, 0) 95%, rgba(0, 0, 0, 0));
   }
   .landing-page .testimonials-slider .swiper-wrapper .swiper-slide .testimonial-item {
     width: 60vw;
@@ -2706,6 +2718,7 @@ html {
 .footer .footer-motto p {
   align-content: space-around;
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-bottom: 1vh;
   font-size: 26px;
@@ -2846,5 +2859,4 @@ html {
     gap: 5vw;
   }
 }
-
 /*# sourceMappingURL=webit-testprojekt.css.map */

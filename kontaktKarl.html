@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt & Ansprechpartner - Goyatzer SV</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Globale Styles & Variablen (aus Landingpage/Fußballseite) --- */
+        :root {
+            --primary-blue: #0077cc;
+            --primary-yellow: #ffdd00;
+            --dark-blue: #005fa3;
+            --light-grey: #f0f0f0;
+            --very-light-grey: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --section-padding: 60px 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--dark-blue); }
+        ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.7em;
+            line-height: 1.3;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Buttons (aus Landingpage) --- */
+        .button { display: inline-block; padding: 12px 30px; border-radius: var(--border-radius); font-weight: 600; font-family: var(--heading-font); text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; font-size: 1em; }
+        .button-primary { background-color: var(--primary-blue); color: var(--text-light); }
+        .button-primary:hover { background-color: var(--dark-blue); transform: translateY(-2px); color: var(--text-light); }
+        .button-secondary { background-color: var(--primary-yellow); color: var(--text-dark); font-weight: 700; }
+        .button-secondary:hover { background-color: #e6c600; transform: translateY(-2px); color: var(--text-dark); }
+
+        /* --- Header (aus Landingpage) --- */
+        .main-header { background-color: var(--primary-blue); color: var(--text-light); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--text-light); font-weight: 500; padding: 8px 5px; position: relative; font-size: 0.95em; transition: color 0.3s ease; }
+        .main-nav a:hover, .main-nav li.active a { color: var(--primary-yellow); } /* Aktive Seite hervorheben */
+        .main-nav .nav-button a { background-color: var(--primary-yellow); color: var(--text-dark); padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        .main-nav .nav-button a:hover { background-color: #e6c600; color: var(--text-dark); }
+        .header-socials { display: flex; gap: 15px; margin-left: 20px; }
+        .header-socials a { color: var(--text-light); font-size: 1.1em; }
+        .header-socials a:hover { color: var(--primary-yellow); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 24px; cursor: pointer; }
+
+         /* --- Page Hero Section (Angepasst für Kontakt) --- */
+        .page-hero {
+            padding: 60px 0;
+            /* Optional: Anderer Hintergrund für Kontakt */
+             background: linear-gradient(rgba(0, 119, 204, 0.85), rgba(0, 95, 163, 0.85)), url('https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+             background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 3em; font-weight: 700; color: var(--text-light); margin-bottom: 10px; }
+        .page-hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+        /* --- Kontaktinfo & Ansprechpartner Layout --- */
+        .contact-layout {
+            padding: var(--section-padding);
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: 1 Spalte */
+            gap: 50px;
+        }
+
+        /* --- Block: Allgemeine Kontaktinfos --- */
+        .contact-info-block {
+            background-color: var(--very-light-grey);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .contact-info-block h2 { margin-bottom: 30px; color: var(--primary-blue); }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-item i {
+            color: var(--primary-blue);
+            font-size: 1.4em;
+            margin-top: 2px;
+            width: 25px; /* Feste Breite */
+            text-align: center;
+        }
+        .contact-item div p { margin: 0 0 5px 0; line-height: 1.5; }
+        .contact-item div p strong { display: block; margin-bottom: 3px; color: var(--text-dark); }
+
+         /* --- Block: Ansprechpartner --- */
+        .key-contacts-block h2 { margin-bottom: 30px; color: var(--primary-blue); }
+        .key-contacts-block h3 { /* Für Vorstand/Mannschaft */
+            font-size: 1.5em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-grey);
+            color: var(--dark-blue);
+        }
+         .key-contacts-block h3:first-of-type { margin-top: 0; } /* Kein oberer Abstand für die erste Überschrift */
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive Grid für Kontakte */
+            gap: 25px;
+        }
+        .contact-person-card {
+            text-align: center;
+            background-color: var(--text-light);
+            padding: 25px 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .contact-person-card:hover {
+            transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+         }
+        .contact-person-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            border: 3px solid var(--light-grey);
+        }
+        .contact-person-card h4 { font-size: 1.2em; margin-bottom: 3px; }
+        .contact-person-card p.role { font-weight: 600; color: var(--text-dark); font-size: 0.95em; margin-bottom: 10px; }
+        .contact-person-card p.contact { font-size: 0.9em; color: #666; word-break: break-all; } /* Umbruch bei langen E-Mails */
+        .contact-person-card p.contact i { margin-right: 5px; }
+        .contact-person-card p.contact a { color: #666; }
+        .contact-person-card p.contact a:hover { color: var(--primary-blue); }
+
+
+        /* --- Kontaktformular Section --- */
+        .contact-form-section {
+            padding: var(--section-padding);
+            background-color: var(--very-light-grey);
+        }
+        .contact-form-section h2 { text-align: center; margin-bottom: 40px; color: var(--primary-blue); }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark); }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group button { width: 100%; } /* Button volle Breite */
+
+        /* --- Map Section --- */
+        .map-section { padding-bottom: var(--section-padding); } /* Nur unten Padding */
+        .map-section h2 { text-align: center; margin-bottom: 40px; color: var(--primary-blue); }
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Footer (aus Landingpage) --- */
+        .main-footer { background-color: var(--text-dark); color: rgba(255, 255, 255, 0.8); padding: 40px 0 20px 0; text-align: center; font-size: 0.9em; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); margin: 0 10px; }
+        .footer-links a:hover { color: var(--text-light); }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: rgba(255, 255, 255, 0.8); margin: 0 12px; font-size: 1.4em; }
+        .footer-socials a:hover { color: var(--primary-yellow); }
+
+        /* --- Responsive Anpassungen --- */
+        @media (min-width: 992px) {
+            .page-hero h1 { font-size: 3.5em; }
+            .contact-layout { grid-template-columns: 1fr 2fr; } /* 2 Spalten für Info & Kontakte */
+            .main-header .container { padding: 0 30px; }
+            .main-nav ul { gap: 30px; }
+            .main-nav a { padding: 8px 10px; }
+        }
+
+        /* Mobile Menu Handling (aus Landingpage) */
+        @media (max-width: 991px) {
+            .menu-toggle { display: block; margin-left: auto; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--dark-blue); padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); }
+            .main-nav.is-active { display: block; }
+            .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            .main-nav li { width: 100%; text-align: center; }
+            .main-nav a { display: block; padding: 14px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-light); }
+            .main-nav li:last-child a { border-bottom: none; }
+            .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--primary-yellow); }
+            .main-nav .nav-button { margin-top: 10px; padding-bottom: 10px;}
+            .main-nav .nav-button a { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); }
+            .main-nav .nav-button a:hover { background-color: var(--primary-yellow); color: var(--text-dark); }
+            .header-socials { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (identisch) -->
+    <header class="main-header">
+        <div class="container">
+            <a href="landingpage.html" class="logo">
+                <img src="https://placehold.co/150x50/ffdd00/0077cc?text=Goyatzer+SV&font=poppins" alt="Goyatzer SV Logo">
+            </a>
+            <nav class="main-nav" id="main-nav">
+                 <ul>
+                    <li><a href="fussball.html">Fußball</a></li>
+                    <li><a href="#">Tennis</a></li>
+                    <li><a href="#">Tischtennis</a></li>
+                    <li><a href="#">Aktuelles</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Impressionen</a></li>
+                     <!-- Aktive Klasse zur aktuellen Seite hinzufügen -->
+                    <li class="active"><a href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-button"><a href="#">Mitglied werden!</a></li>
+                </ul>
+            </nav>
+             <div class="header-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section für Kontakt -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Kontakt & Ansprechpartner</h1>
+                <p>Haben Sie Fragen, Anregungen oder möchten Sie Mitglied werden? Hier finden Sie alle wichtigen Kontakte und Informationen.</p>
+            </div>
+        </section>
+
+        <!-- Hauptinhalt der Kontaktseite -->
+        <div class="contact-layout container">
+
+            <!-- Linke Spalte: Allgemeine Infos -->
+            <aside class="contact-info-block">
+                <h2>Vereinsinformationen</h2>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p><strong>Postanschrift</strong></p>
+                        <p>Goyatzer SV 1927 e.V.<br>Musterstraße 12<br>15913 Goyatz</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                     <div>
+                        <p><strong>Sportplatz</strong></p>
+                        <p>Am Sportplatz 5<br>15913 Goyatz</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                     <div>
+                        <p><strong>Telefon (Geschäftsstelle)</strong></p>
+                        <!-- Telefonnummer ersetzen -->
+                        <p><a href="tel:+491234567890">+49 1234 567890</a></p>
+                    </div>
+                </div>
+                 <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                     <div>
+                        <p><strong>E-Mail (Allgemein)</strong></p>
+                         <!-- E-Mail ersetzen -->
+                        <p><a href="mailto:info@goyatzer-sv.de">info@goyatzer-sv.de</a></p>
+                    </div>
+                </div>
+                 <div class="contact-item">
+                    <i class="fas fa-share-alt"></i>
+                     <div>
+                        <p><strong>Folgen Sie uns</strong></p>
+                        <p>
+                            <a href="#" aria-label="Facebook" style="font-size: 1.5em; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram" style="font-size: 1.5em;"><i class="fab fa-instagram"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Rechte Spalte: Ansprechpartner -->
+            <section class="key-contacts-block">
+                <h2>Ihre Ansprechpartner im Verein</h2>
+
+                <h3>Vorstand</h3>
+                <div class="contacts-grid">
+                    <!-- Vorstand Personen - Daten ersetzen -->
+                    <div class="contact-person-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80" alt="Porträt Kathleen Feldner">
+                        <h4>Kathleen Feldner</h4>
+                        <p class="role">Vorstandsvorsitzende</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:k.feldner@goyatzer-sv.de">k.feldner@goyatzer-sv.de</a></p>
+                    </div>
+                     <div class="contact-person-card">
+                        <img src="https://placehold.co/100x100/cccccc/333333?text=SV" alt="Stellv. Vorsitzender">
+                        <h4>Stefan Vogt</h4>
+                        <p class="role">Stellv. Vorsitzender</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:s.vogt@goyatzer-sv.de">s.vogt@goyatzer-sv.de</a></p>
+                    </div>
+                    <div class="contact-person-card">
+                         <img src="https://placehold.co/100x100/cccccc/333333?text=AK" alt="Kassenwart">
+                        <h4>Andreas Klein</h4>
+                        <p class="role">Kassenwart</p>
+                        <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:a.klein@goyatzer-sv.de">a.klein@goyatzer-sv.de</a></p>
+                    </div>
+                     <!-- Weitere Vorstandsmitglieder -->
+                </div>
+
+                <h3>Abteilung Fußball</h3>
+                 <div class="contacts-grid">
+                     <!-- Verantwortliche Fußball - Daten ersetzen -->
+                     <div class="contact-person-card">
+                         <img src="https://placehold.co/100x100/cccccc/333333?text=MH" alt="Abteilungsleiter Fußball">
+                         <h4>Markus Huber</h4>
+                         <p class="role">Abteilungsleiter Fußball</p>
+                         <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:m.huber.fussball@goyatzer-sv.de">m.huber.fussball@goyatzer-sv.de</a></p>
+                     </div>
+                      <div class="contact-person-card">
+                         <img src="https://placehold.co/100x100/cccccc/333333?text=PN" alt="Jugendleiter Fußball">
+                         <h4>Petra Neumann</h4>
+                         <p class="role">Jugendleiterin Fußball</p>
+                         <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:p.neumann.jugend@goyatzer-sv.de">p.neumann.jugend@goyatzer-sv.de</a></p>
+                     </div>
+                      <!-- Füge hier die Trainer von der Fußballseite ggf. hinzu oder verlinke dorthin -->
+                 </div>
+
+                  <h3>Abteilung Tennis</h3>
+                 <div class="contacts-grid">
+                      <!-- Verantwortliche Tennis - Daten ersetzen -->
+                     <div class="contact-person-card">
+                         <img src="https://placehold.co/100x100/cccccc/333333?text=CS" alt="Abteilungsleiter Tennis">
+                         <h4>Claudia Stein</h4>
+                         <p class="role">Abteilungsleiterin Tennis</p>
+                         <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:c.stein.tennis@goyatzer-sv.de">c.stein.tennis@goyatzer-sv.de</a></p>
+                     </div>
+                 </div>
+
+                 <h3>Abteilung Tischtennis</h3>
+                 <div class="contacts-grid">
+                      <!-- Verantwortliche TT - Daten ersetzen -->
+                     <div class="contact-person-card">
+                         <img src="https://placehold.co/100x100/cccccc/333333?text=DB" alt="Abteilungsleiter Tischtennis">
+                         <h4>Dirk Bauer</h4>
+                         <p class="role">Abteilungsleiter Tischtennis</p>
+                         <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:d.bauer.tt@goyatzer-sv.de">d.bauer.tt@goyatzer-sv.de</a></p>
+                     </div>
+                 </div>
+
+            </section>
+        </div>
+
+        <!-- Kontaktformular -->
+        <section class="contact-form-section">
+            <div class="container">
+                 <h2>Schreiben Sie uns eine Nachricht</h2>
+                <form action="#" method="POST" class="contact-form"> <!-- Backend-Verarbeitung erforderlich -->
+                    <div class="form-group">
+                        <label for="name">Name <span title="Pflichtfeld">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail <span title="Pflichtfeld">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Betreff <span title="Pflichtfeld">*</span></label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht <span title="Pflichtfeld">*</span></label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="button button-primary">Nachricht senden</button>
+                    </div>
+                     <p style="font-size: 0.8em; color: #777;">Mit * markierte Felder sind Pflichtfelder.</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Karte -->
+        <section class="map-section">
+            <div class="container">
+                <h2>So finden Sie uns</h2>
+                <div class="map-container">
+                    <!-- Ersetze durch deinen Google Maps Embed Code -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.64059607876!2d14.011989815774462!3d52.0153461797213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4707bc90d8137abd%3A0x4e6f1e0a1da1b0d0!2sGoyatz%2C%20Schwielochsee!5e0!3m2!1sde!2sde!4v1684150000000!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (identisch) -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Impressum</a> |
+                <a href="#">Datenschutz</a> |
+                <a href="#">Kontakt</a>
+            </div>
+             <div class="footer-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <p>© <span id="current-year"></span> Goyatzer SV. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle (aus Landingpage) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const burgerIcon = menuToggle.querySelector('i');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('is-active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                if (isActive) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-times');
+                } else {
+                    burgerIcon.classList.remove('fa-times');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+         // --- Footer Current Year (aus Landingpage) ---
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+// webit-testprojekt.scss
+@use "../node_modules//swiper//swiper-bundle.min.css";
+
+@use "./app/base/variables.scss";
+@use "./app/base/accessibility.scss";
+@use "./app/base/typography.scss";
+@use "./app/base/base.scss";
+@use "./app/header/header.scss";
+@use "./app/teaser/teaser.scss";
+@use "./app/formular/formular.scss";
+@use "./app/scroll-to-top-button/scroll-to-top-button.scss";
+@use "./app/swiper-slider/swiper-slider.scss";
+@use "./app/image-zoom/image-zoom.scss";
+@use "./app/landing-page/landing-page.scss";
+@use "./app/contact-site/contact-site.scss";
+@use "./app/member-site/member-site.scss";
+@use "./app/footer/footer.scss";

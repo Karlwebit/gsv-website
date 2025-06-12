@@ -1,0 +1,53 @@
+// _formular.scss
+@use "../base/variables" as *;
+
+form {
+    border: 2px solid $color-primary;
+    border-radius: $border-radius-large;
+    background-color: $color-neutral-25;
+    width: 40%;
+    display: flex;
+    justify-self: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 1rem 1rem 1rem;
+    margin: 10vh auto;
+    filter: drop-shadow(0 0 10px $color-neutral-25);
+    @media (max-width: $media-width-phone) {
+        width: 90%;
+    }
+    h5 {
+        padding-left: 3%;
+    }
+    label {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 3px;
+        margin: 1% 2%;
+
+        @media(max-width:$media-width-phone-navbar){
+            margin-bottom: 2vh;
+        }
+    }
+    input,textarea {
+        width: 95%;
+        font-size: 1.1rem;
+        padding: 1%;
+        border-radius: $border-radius-small;
+        border: 1px solid $color-neutral-100;
+        
+        @media (max-width: $media-width-phone){
+            padding: 2%;
+        }
+    }
+    a {
+        margin: 2vh;
+        text-align: center;
+    }
+    p {
+        margin: 1vh 0;
+    }
+    input:hover, textarea:hover {
+        border: 1px solid $color-primary;
+    }
+}

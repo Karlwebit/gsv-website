@@ -1,0 +1,328 @@
+// _header.scss
+@use "../base/variables" as *;
+
+//desktop screen size
+.menu-overlay {
+  display: none;
+}
+
+.navigationbar-phone {
+  display: none;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.navigationbar {
+  align-items: center;
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  max-width: 1500px;
+  padding: 20px 15px;
+  position: fixed;
+  top: 0;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 100;
+
+  .navigationbar-actions-social {
+    display: flex;
+    flex-direction: column;
+    margin-top: -1vh;
+  }
+}
+
+.navigation-logo {
+  align-items: center;
+  display: flex;
+  margin: 0 -25px 0 0;
+  position: relative;
+  z-index: 10;
+}
+
+.navigation-logo img {
+  max-width: 8vh;
+}
+
+.navigationbar-actions {
+  margin-top: -2vh;
+
+  ul {
+    background-color: $color-primary;
+    border-radius: $border-radius-large;
+    border: 5px solid $color-neutral-0;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    padding: 10px 10px 10px 20px;
+    position: relative;
+    z-index: 5;
+    align-items: center;
+
+    li {
+      a {
+        color: $color-neutral-0;
+        font-family: $font-family-base;
+        border-radius: $border-radius-small;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: $font-size-base;
+        padding: 15px;
+        text-decoration: none;
+        transition: color 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+          background-color: $color-accent;
+          border-radius: 5px;
+          color: $color-neutral-100;
+        }
+      }
+    }
+
+    li:last-child {
+      a {
+        background-color: $color-accent;
+        color: $color-primary;
+        font-weight: bold;
+        padding: 15px;
+
+        &:hover {
+          background-color: $color-neutral-0;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.navbar-social-media {
+  display: flex;
+  gap: 32px;
+  z-index: 110;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-right: 2vw;
+
+  a {
+    cursor: pointer;
+    max-width: 40px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// logo as button
+.logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+
+  img {
+    width: 200px;
+    height: auto;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.menu-overlay a:focus,
+.hamburger-menu:focus,
+.close-menu-overlay:focus {
+  outline: 2px solid $color-neutral-100;
+  outline-offset: 2px;
+}
+
+.menu-overlay[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+
+//...............................................
+//...............................................
+//...............................................
+//...............................................
+//...............................................
+//...............................................
+//...............................................
+//...............................................
+
+
+
+// responsive design for smaller screens, PHONE
+@media (max-width: $media-width-phone-navbar) {
+  .navigationbar {
+    display: none;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+
+  //navigationbar for phone
+  .navigationbar-phone {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1002;
+
+    img {
+      max-width: 72px;
+      padding: 10px;
+      display: block;
+      position: relative;
+      z-index: 10;
+    }
+
+    .navigationbar-phone-bar {
+      width: 85%;
+      align-items: center;
+      height: 30px;
+      padding: 10px;
+      background-color: $color-primary;
+      border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: -30px;
+      z-index: 5;
+      border: 2px solid $color-neutral-0;
+
+      .hamburger-menu {
+        &:focus {
+          outline: 2px solid $color-neutral-100;
+        }
+
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0;
+
+        span {
+          display: block;
+          width: 40px;
+          height: 5px;
+          background-color: $color-neutral-0;
+          border-radius: $border-radius-small;
+        }
+      }
+    }
+  }
+
+  //menu overlay for phone
+  .menu-overlay {
+
+    a:focus,
+    button:focus {
+      outline: 2px solid $color-neutral-100;
+    }
+
+    z-index: 1010;
+    position: fixed;
+    font-size: 22px;
+    font-weight: 500;
+    width: 80vw;
+    height: 100%;
+    right: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    top: 0;
+    background-color: $color-accent;
+    border-radius: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease,
+    opacity 0.3s ease;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      justify-content: center;
+      padding: 0;
+      gap: 1vh;
+      margin-top: 3vh;
+      margin-bottom: 5vh;
+
+      li {
+        justify-content: initial;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10vw;
+        padding: 2vh;
+
+        .menu-icon {
+          background-color: none;
+          width: 40px;
+          height: 40px;
+        }
+
+        a {
+          color: $color-neutral-100;
+          text-decoration: none;
+        }
+      }
+
+    }
+
+    .menu-overlay-social-media {
+      display: flex;
+      width: 40%;
+      justify-content: space-between;
+
+      @media(max-width:$media-width-phone-small) {
+        width: 60%;
+      }
+
+      a {
+        display: flex;
+        background: none;
+        border: none;
+        text-decoration: none;
+
+        .icon {
+          margin: 0;
+        }
+      }
+    }
+
+
+
+    .close-menu-overlay {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 70px;
+      z-index: 1015;
+      transition: transform 0.3s ease;
+    }
+
+  }
+
+  #menu-toggle:checked~.menu-overlay {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

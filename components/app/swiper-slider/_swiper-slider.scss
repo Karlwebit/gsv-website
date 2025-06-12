@@ -1,0 +1,152 @@
+// _swiper.scss
+@use "../base/variables" as *;
+
+//desktop size
+.slider {
+    max-width: 1500px;
+    margin: 15vh auto 5vh auto;
+    overflow: hidden;
+    .swiper-wrapper {
+        .swiper-slide {
+            overflow: hidden;
+            border-radius: $border-radius-large;
+            .swiper-slide-wrapper {
+                max-width: 90%;
+                margin: 0 auto;
+                img {
+                    width: 100%;
+                    height: 80vh;
+                    min-width: auto;
+                    border-radius: $border-radius-large;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                .swiper-slider-pause {
+                    &:focus {
+                        outline: 2px solid $color-neutral-0;
+                    }
+                    display: flex;
+                    position: absolute;
+                    bottom: 5%;
+                    left: 10%;
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: $color-neutral-0;
+                    align-items: center; 
+                    justify-content: center;
+                    background: none;
+                    border: 4px solid $color-neutral-0;
+                    cursor: pointer;
+                    z-index: 20;
+                    border-radius: 50%;
+                    width: 50px; 
+                    height: 50px;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+                .slider-overlay {
+                    position: absolute;
+                    top: 35%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 80%;
+                    max-width: 1200px;
+                    z-index: 10;
+                    opacity: 1;
+                    h1 {
+                        margin: 2vh 0;
+                        .highlighted {
+                            display: inline-block;
+                            background-color: $color-primary;
+                            color: $color-accent;
+                            padding: 1vw;
+                            border-radius: $border-radius-small;
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    a {
+                        display: inline-block;
+                        margin-top: 4vh;
+                        justify-self: center;
+                    }
+                }
+            }
+        }
+    }
+    .swiper-pagination {
+        position: relative;
+        margin: 2vh 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        &.bullet {
+            width: 12px;
+            height: 12px;
+            background-color: $color-neutral-50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &.active {
+                background-color: $color-primary;
+            }
+        }
+    }  
+}
+
+//responsive design for smaller screens
+@media (max-width: $media-width-phone){
+    .slider {
+        margin: 12vh auto 2vh auto;
+        width: 90%;
+        max-height: 70vh;
+        .swiper-wrapper {
+            .swiper-slide {
+               .swiper-slide-wrapper {
+                img {
+                    max-height: 80vh;
+                    height: auto;
+                }
+                .slider-overlay {
+                    top: 15%;
+                    left: 50%;
+                    margin-top: 8vh;
+
+                    @media(max-width:$media-width-phone-verysmall){
+                        margin-top: 6vh;
+                    }
+                    h1 {
+                        margin: 1vh 0;
+                    }
+                    a {
+                        margin-top: 1vh;
+                        @media(max-width:$media-width-phone-verysmall){
+                            font-size: 12px;
+                            padding: 10px;
+                            margin-top: 0;
+                        }
+                    }
+                }
+                .swiper-slider-pause {
+                    top: 5%;
+                    left: 68vw;
+                    display: flex;
+                    align-items: center; 
+                    justify-content: center; 
+                    flex-wrap: wrap;
+                    &:hover {
+                        transform: none;
+                    }
+                    &:focus  {
+                        outline: none;
+                    }
+                }
+               }
+            }
+        }
+    }
+}

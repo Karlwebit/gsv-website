@@ -1,0 +1,234 @@
+// _base.scss
+@use "./variables" as *;
+
+
+//normal for desktop screen size
+body {
+    background-color: $color-neutral-0;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    margin: 0;
+    padding: 0;
+}
+
+.inner {
+    margin: 0 auto;
+    max-width: 1500px;
+    position: relative;
+
+    @media(max-width:$media-width-phone-navbar) {
+        max-width: 100vw;
+    }
+}
+
+// Grid Layout
+.grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+}
+
+//text-decoration:none at links 
+a {
+    text-decoration: none;
+}
+
+//primary button
+.primary {
+    background-color: $btn-primary-bg;
+    border-radius: $border-radius-large;
+    color: $btn-primary-color;
+    font-weight: bold;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    font-size: $font-size-primary-btn;
+    border: 2px solid $btn-primary-bg;
+
+    &:hover {
+        background-color: $btn-primary-hover-bg;
+        color: $btn-primary-hover-color;
+        cursor: pointer;
+        transform: scale(1.1);
+        
+    }
+}
+
+//secondary button
+.secondary {
+    background-color: $btn-secondary-bg;
+    color: $btn-secondary-color;
+    border-radius: $border-radius-small;
+    font-size: $font-size-secondary-btn;
+    border: none;
+    padding: 12px;
+
+    &:hover {
+        background-color: $btn-secondary-hover-bg;
+        color: $btn-secondary-hover-color;
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+//invert background for secondary button
+.background-invert {
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: $color-neutral-0;
+
+    .secondary {
+        background-color: $color-primary;
+        border: 2px solid $color-accent;
+        color: $color-accent;
+        padding: 10px;
+        font-weight: bold;
+        margin-bottom: 2vh;
+
+        &:hover {
+            border: 2px solid $color-neutral-0;
+            color: $color-neutral-0;
+        }
+    }
+}
+
+//news preview
+.news {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 10vh;
+
+    h2 {
+        text-align: center;
+    }
+
+    a {
+        &:focus {
+            outline: none;
+        }
+
+        img {
+            justify-self: center;
+            display: flex;
+            max-height: 75vh;
+            margin: 0 auto;
+            width: auto;
+            height: auto;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .news-mobile-substitute {
+        display: none;
+    }
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+    margin: 0;
+
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.notclickable {
+    cursor: default;
+    text-decoration: none;
+}
+
+
+//for screen size TABLET
+
+@media (max-width:1280) {
+    body {
+        font-size: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inner {
+        margin: 0 auto;
+    }
+
+    .primary {
+        font-size: 16px;
+        padding: 24px 32px;
+    }
+
+    .secondary {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+}
+
+//for screen size PHONE
+@media (max-width: $media-width-phone) {
+    body {
+        font-size: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inner {
+        margin: 0 auto;
+    }
+
+    .primary {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+
+    .secondary {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    //news
+    .news {
+        margin: 5vh 0 10vh 0;
+
+        a {
+            img {
+                display: none;
+            }
+        }
+
+        .news-mobile-substitute {
+            display: flex;
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+                border-radius: $border-radius-small;
+                border: none;
+                background-color: $color-accent;
+                padding: 10px;
+                align-items: center;
+                display: flex;
+                gap: 1rem;
+                max-width: 80vw;
+
+                p {
+                    color: $color-neutral-100;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+
+        }
+    }
+}

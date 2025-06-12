@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis & Tischtennis - Goyatzer SV</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- Globale Styles & Variablen (aus vorherigen Seiten) --- */
+        :root {
+            --primary-blue: #0077cc;
+            --primary-yellow: #ffdd00;
+            --dark-blue: #005fa3;
+            --light-grey: #f0f0f0;
+            --very-light-grey: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --section-padding: 60px 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--text-light); /* Weißen Hintergrund für diese Seite */
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--dark-blue); }
+        ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            margin-bottom: 0.7em;
+            line-height: 1.3;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Buttons (aus vorherigen Seiten) --- */
+        .button { display: inline-block; padding: 12px 30px; border-radius: var(--border-radius); font-weight: 600; font-family: var(--heading-font); text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; border: none; cursor: pointer; font-size: 1em; }
+        .button-primary { background-color: var(--primary-blue); color: var(--text-light); }
+        .button-primary:hover { background-color: var(--dark-blue); transform: translateY(-2px); color: var(--text-light); }
+        .button-secondary { background-color: var(--primary-yellow); color: var(--text-dark); font-weight: 700; }
+        .button-secondary:hover { background-color: #e6c600; transform: translateY(-2px); color: var(--text-dark); }
+
+        /* --- Header (aus vorherigen Seiten) --- */
+        .main-header { background-color: var(--primary-blue); color: var(--text-light); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .main-nav ul { display: flex; gap: 20px; align-items: center; }
+        .main-nav a { color: var(--text-light); font-weight: 500; padding: 8px 5px; position: relative; font-size: 0.95em; transition: color 0.3s ease; }
+        /* Annahme: Es gibt einen kombinierten Menüpunkt oder keinen spezifisch aktiven */
+         .main-nav li.active a { color: var(--primary-yellow); }
+         .main-nav a:hover { color: var(--primary-yellow); }
+        .main-nav .nav-button a { background-color: var(--primary-yellow); color: var(--text-dark); padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        .main-nav .nav-button a:hover { background-color: #e6c600; color: var(--text-dark); }
+        .header-socials { display: flex; gap: 15px; margin-left: 20px; }
+        .header-socials a { color: var(--text-light); font-size: 1.1em; }
+        .header-socials a:hover { color: var(--primary-yellow); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 24px; cursor: pointer; }
+
+        /* --- Page Hero Section (Angepasst für Racket-Sports) --- */
+        .page-hero {
+            padding: 60px 0;
+             /* Hintergrundbild für Racket-Sportarten */
+             background: linear-gradient(rgba(0, 119, 204, 0.8), rgba(0, 95, 163, 0.8)), url('https://images.unsplash.com/photo-1534224039826-c7a0eda0e6b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+             background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 3em; font-weight: 700; color: var(--text-light); margin-bottom: 10px; }
+        .page-hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+        /* --- Section Layout für die Sportarten --- */
+        .racket-sports-section { padding: var(--section-padding); }
+        .sport-detail-card {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: Bild über Text */
+            gap: 0; /* Kein Gap zwischen Bild und Text */
+            margin-bottom: 60px;
+            background-color: var(--very-light-grey);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        .sport-image img {
+            width: 100%;
+            height: 350px; /* Feste Höhe für Bilder */
+            object-fit: cover;
+        }
+        .sport-content { padding: 35px; }
+        .sport-content h2 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 20px; }
+        .sport-content .description { margin-bottom: 30px; color: #555; }
+        .sport-content h3 { /* Für "Training" & "Ansprechpartner" */
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light-grey);
+            color: var(--dark-blue);
+        }
+         .sport-content h3:first-of-type { margin-top: 0; }
+
+        /* Trainingsinfo Liste */
+        .training-info-list { list-style: none; padding: 0; margin-bottom: 30px;}
+        .info-row {
+            display: flex;
+            align-items: center; /* Zentrierte Ausrichtung Icon & Text */
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+        .info-row i {
+            color: var(--primary-blue);
+            font-size: 1.2em;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .info-row span { font-weight: 600; color: var(--text-dark); margin-right: 5px; }
+
+        /* Ansprechpartner Info */
+        .contact-info { display: flex; align-items: center; gap: 15px; margin-top: 10px;}
+        .contact-info img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .contact-info p { margin: 0; line-height: 1.5; }
+        .contact-info p strong { display: block; margin-bottom: 3px; }
+        .contact-info p a { color: #555; word-break: break-all; }
+        .contact-info p a:hover { color: var(--primary-blue); }
+
+         /* CTA Button im Content */
+         .sport-content .button { margin-top: 25px; }
+
+        /* --- Final CTA Section --- */
+        .final-cta-section {
+            padding: 50px 0;
+            background-color: var(--primary-yellow);
+            text-align: center;
+        }
+        .final-cta-section h2 { color: var(--text-dark); margin-bottom: 15px; }
+        .final-cta-section p { max-width: 600px; margin: 0 auto 25px auto; color: var(--text-dark); opacity: 0.9; }
+
+
+        /* --- Footer (aus vorherigen Seiten) --- */
+        .main-footer { background-color: var(--text-dark); color: rgba(255, 255, 255, 0.8); padding: 40px 0 20px 0; text-align: center; font-size: 0.9em; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); margin: 0 10px; }
+        .footer-links a:hover { color: var(--text-light); }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: rgba(255, 255, 255, 0.8); margin: 0 12px; font-size: 1.4em; }
+        .footer-socials a:hover { color: var(--primary-yellow); }
+
+
+        /* --- Responsive Anpassungen --- */
+        @media (min-width: 768px) {
+            .page-hero h1 { font-size: 3.5em; }
+            .sport-detail-card { grid-template-columns: 1fr 1.2fr; /* Bild links, Text rechts (breiter) */ gap: 0; }
+            .sport-image img { height: 100%; /* Höhe an Content anpassen */ min-height: 450px; } /* Mindesthöhe */
+            .sport-content { padding: 45px; }
+            /* Alternating Layout */
+            .sport-detail-card:nth-child(even) { grid-template-columns: 1.2fr 1fr; /* Text links, Bild rechts */ }
+            .sport-detail-card:nth-child(even) .sport-image { order: 2; }
+            .sport-detail-card:nth-child(even) .sport-content { order: 1; }
+        }
+
+        @media (min-width: 992px) {
+            .page-hero h1 { font-size: 4em; }
+            .sport-content { padding: 50px 60px; }
+            .main-header .container { padding: 0 30px; }
+             .main-nav ul { gap: 30px; }
+             .main-nav a { padding: 8px 10px; }
+        }
+
+        /* Mobile Menu Handling (aus vorherigen Seiten) */
+        @media (max-width: 991px) {
+            .menu-toggle { display: block; margin-left: auto; }
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--dark-blue); padding: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid rgba(255,255,255,0.1); }
+            .main-nav.is-active { display: block; }
+            .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+            .main-nav li { width: 100%; text-align: center; }
+            .main-nav a { display: block; padding: 14px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-light); }
+            .main-nav li:last-child a { border-bottom: none; }
+            .main-nav a:hover { background-color: rgba(255, 255, 255, 0.1); color: var(--primary-yellow); }
+            .main-nav .nav-button a { background-color: transparent; border: 2px solid var(--primary-yellow); color: var(--primary-yellow); margin: 10px 20px; padding: 12px 20px;}
+            .main-nav .nav-button a:hover { background-color: var(--primary-yellow); color: var(--text-dark); }
+            .header-socials { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="landingpage.html" class="logo">
+                <img src="https://placehold.co/150x50/ffdd00/0077cc?text=Goyatzer+SV&font=poppins" alt="Goyatzer SV Logo">
+            </a>
+            <nav class="main-nav" id="main-nav">
+                 <ul>
+                    <li><a href="fussball.html">Fußball</a></li>
+                    <!-- Annahme: Es gibt einen Menüpunkt, der beide abdeckt, oder keiner ist aktiv -->
+                    <li class="active"><a href="tennis-tischtennis.html">Tennis & TT</a></li>
+                    <li><a href="#">Aktuelles</a></li>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Impressionen</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-button"><a href="mitglied-werden.html">Mitglied werden!</a></li>
+                </ul>
+            </nav>
+             <div class="header-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section für Racket-Sports -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Tennis & Tischtennis im Goyatzer SV</h1>
+                <p>Entdecke die Faszination schnellen Ballwechsels – ob auf dem großen Court oder an der kleinen Platte!</p>
+            </div>
+        </section>
+
+        <!-- Hauptinhalt: Tennis & Tischtennis -->
+        <section class="racket-sports-section">
+            <div class="container">
+
+                <!-- Tennis Section Card -->
+                <article class="sport-detail-card">
+                    <div class="sport-image">
+                        <!-- Tennis Bild ersetzen -->
+                        <img src="https://images.unsplash.com/photo-1594499499187-68164407c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Tennisspieler beim Aufschlag">
+                    </div>
+                    <div class="sport-content">
+                        <h2>Tennis</h2>
+                        <p class="description">Erlebe dynamische Ballwechsel an der frischen Luft! Tennis fördert deine Ausdauer, Koordination und Konzentration. Egal ob Anfänger oder Fortgeschrittener, auf unseren Plätzen findest du die passende Herausforderung und nette Spielpartner.</p>
+
+                        <h3>Trainingszeiten</h3>
+                        <ul class="training-info-list">
+                            <li class="info-row"><i class="fas fa-users"></i> <span>Erwachsene:</span> Nach Absprache / Freies Spiel</li>
+                            <li class="info-row"><i class="fas fa-child"></i> <span>Jugend (ab 10 J.):</span> Mittwoch, 16:00 - 17:30 Uhr</li>
+                            <li class="info-row"><i class="fas fa-map-marker-alt"></i> <span>Ort:</span> Tennisanlage Goyatz</li>
+                        </ul>
+
+                        <h3>Ansprechpartner</h3>
+                        <div class="contact-info">
+                            <!-- Bild & Daten ersetzen -->
+                            <img src="https://placehold.co/60x60/cccccc/333333?text=CS" alt="Claudia Stein">
+                            <div>
+                                <p><strong>Claudia Stein</strong></p>
+                                <p>Abteilungsleiterin Tennis</p>
+                                <p><i class="fas fa-envelope"></i> <a href="mailto:c.stein.tennis@goyatzer-sv.de">c.stein.tennis@goyatzer-sv.de</a></p>
+                            </div>
+                        </div>
+
+                        <a href="kontakt.html" class="button button-primary">Interesse an Tennis?</a>
+                    </div>
+                </article>
+
+                 <!-- Tischtennis Section Card -->
+                <article class="sport-detail-card">
+                     <div class="sport-image">
+                         <!-- Tischtennis Bild ersetzen -->
+                        <img src="https://images.unsplash.com/photo-1529983740505-bc8511_A475e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Zwei Personen spielen Tischtennis in einer Halle">
+                    </div>
+                    <div class="sport-content">
+                        <h2>Tischtennis</h2>
+                        <p class="description">Der schnellste Rückschlagsport der Welt! Tischtennis schult deine Reaktion, dein Ballgefühl und deine Fitness auf spielerische Weise. Komm vorbei und miss dich an der Platte – Spaß ist garantiert!</p>
+
+                        <h3>Trainingszeiten</h3>
+                        <ul class="training-info-list">
+                            <li class="info-row"><i class="fas fa-users"></i> <span>Erwachsene:</span> Donnerstag, 19:30 - 21:00 Uhr</li>
+                             <li class="info-row"><i class="fas fa-child"></i> <span>Jugend (ab 8 J.):</span> Donnerstag, 18:00 - 19:30 Uhr</li>
+                            <li class="info-row"><i class="fas fa-map-marker-alt"></i> <span>Ort:</span> Turnhalle Grundschule Goyatz</li>
+                        </ul>
+
+                        <h3>Ansprechpartner</h3>
+                        <div class="contact-info">
+                             <!-- Bild & Daten ersetzen -->
+                            <img src="https://placehold.co/60x60/cccccc/333333?text=DB" alt="Dirk Bauer">
+                            <div>
+                                <p><strong>Dirk Bauer</strong></p>
+                                <p>Abteilungsleiter Tischtennis</p>
+                                <p><i class="fas fa-envelope"></i> <a href="mailto:d.bauer.tt@goyatzer-sv.de">d.bauer.tt@goyatzer-sv.de</a></p>
+                            </div>
+                        </div>
+
+                         <a href="kontakt.html" class="button button-primary">Interesse an Tischtennis?</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <h2>Bereit für den Aufschlag?</h2>
+                <p>Egal ob Tennis oder Tischtennis – wir freuen uns darauf, dich kennenzulernen! Werde jetzt Mitglied und entdecke deine Leidenschaft für den Racket-Sport.</p>
+                <a href="mitglied-werden.html" class="button button-primary button-large">Jetzt Mitglied werden!</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+     <footer class="main-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Impressum</a> |
+                <a href="#">Datenschutz</a> |
+                <a href="#">Kontakt</a>
+            </div>
+             <div class="footer-socials">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             </div>
+            <p>© <span id="current-year"></span> Goyatzer SV. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle (aus vorherigen Seiten) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const burgerIcon = menuToggle.querySelector('i');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('is-active');
+                menuToggle.setAttribute('aria-expanded', isActive);
+                if (isActive) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-times');
+                } else {
+                    burgerIcon.classList.remove('fa-times');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+         // --- Footer Current Year (aus vorherigen Seiten) ---
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

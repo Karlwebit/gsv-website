@@ -1,0 +1,48 @@
+//scroll-to-top-button.scss
+@use "../base/variables" as *;
+
+// Anchor point at top of page
+#top {
+  padding-top: 2vh;
+}
+
+// Base button styles
+.scroll-to-top {
+  // Fixed positioning
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  
+  // Visual appearance
+  background: $color-accent;
+  color: $color-primary;
+  border-radius: 50%;
+  font-size: 32px;
+  text-align: center;
+  line-height: 60px;
+  text-decoration: none;
+  z-index: 2000;
+  filter: drop-shadow(0 0 15px $color-accent);
+
+  // Transition effects
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  
+  // Hover state
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Smooth scrolling for whole page
+html {
+  scroll-behavior: smooth;
+}
+
+// Hide on mobile devices
+@media (max-width: $media-width-phone-navbar) {
+  .scroll-to-top {
+    display: none;
+  }
+}

@@ -1,0 +1,36 @@
+// _variables.scss
+
+$font-family-base: "Inter", sans-serif;
+$font-size-base: 20px;
+
+// colors
+$color-primary: #0e79bf;
+$color-accent: #fbe91d;
+$color-neutral-100: #1e1e1e;
+$color-neutral-50: #e0d9d9;
+$color-neutral-25: #eeeded;
+$color-neutral-0: #ffffff;
+
+// primary button
+$btn-primary-bg: $color-accent;
+$btn-primary-color: $color-neutral-100;
+$btn-primary-hover-bg: $color-primary;
+$btn-primary-hover-color: $color-neutral-0;
+$font-size-primary-btn: 20px;
+
+// secondary Button
+$btn-secondary-bg: $color-primary;
+$btn-secondary-color: $color-neutral-0;
+$btn-secondary-hover-bg: $color-accent;
+$btn-secondary-hover-color: $color-neutral-100;
+$font-size-secondary-btn: $font-size-base;
+
+// Borders, etc.
+$border-radius-large: 25px;
+$border-radius-small: 10px;
+
+//media widths
+$media-width-phone: 850px;
+$media-width-phone-navbar: 1030px;
+$media-width-phone-small: 500px;
+$media-width-phone-verysmall: 350px;

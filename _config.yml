@@ -1,0 +1,17 @@
+# Minimal Jekyll config for GitHub Pages
+title: Goyatzer SV Website
+description: Offizielle Website des Goyatzer SV
+theme: minima
+exclude:
+  - node_modules
+  - build
+  - kickstart-scripts
+  - components
+  - Bilder
+  - pictures-before-after-svg
+  - README.md
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - .vscode
+  - .DS_Store

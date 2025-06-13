@@ -1,3 +1,8 @@
+---
+layout: default
+title: Landingpage
+---
+
 <!doctype html>
 <html lang="de">
 
@@ -19,7 +24,7 @@
   <div id="top"></div>
   {svg:{icon-sprite}}
   {app:{sandbox-sitemap}}
-  {app:{header}}
+  {% include header.html %}
   
   {app:{landing-page}}
   
@@ -30,3 +35,5 @@
     <!-- JavaScript -->
   <script src="./assets/js/main.js" type="module"></script>
 </body>
+
+</html>
